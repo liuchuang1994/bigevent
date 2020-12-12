@@ -24,7 +24,11 @@ $(function () {
                 return  '两次密码不一致，请重新输入';
               }
         }
- });      
+    });      
+    
+    $.ajaxPrefilter(function (options) {
+     options.url = "http://ajax.frontend.itheima.net" + options.url;
+    })
 
    // 注册功能
     // 给form表单注册submit事件
@@ -36,7 +40,7 @@ $(function () {
         // 发送Ajax
         $.ajax({
             type: 'POST',
-            url: 'http://ajax.frontend.itheima.net/api/reguser',
+            url: '/api/reguser',
             data,
             success: function (res) {
             //  console.log(res);
@@ -66,7 +70,7 @@ $(function () {
         // 发送Ajax
         $.ajax({
             type: 'POST',
-            url: 'http://ajax.frontend.itheima.net/api/login',
+            url: '/api/login',
             data,
             success: function (res) {
             //  登录失败
@@ -83,4 +87,6 @@ $(function () {
             
         })
     })
+
+
 })
