@@ -58,6 +58,11 @@ $(function () {
         
         })
     })
+    $(document).on('keyup', function (e) {
+        if (e.keyCode === 13) {
+         $('#registerForm').click()
+        }
+    })
 
 
     // 登录功能
@@ -86,6 +91,11 @@ $(function () {
             }
             
         })
+    })
+     $(document).on('keyup', function (e) {
+        if (e.keyCode === 13) {
+         $('#loginForm').click()
+        }
     })
 
 
