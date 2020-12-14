@@ -1,0 +1,35 @@
+*{
+ margin: 0;
+ padding: 0;
+}
+.iconfont,
+.layui-icon{
+ margin-right: 10px;
+}
+.layui-icon {
+  margin-left: 20px;
+}
+.layui-body {
+  overflow: hidden;
+}
+
+.userInfo{
+  height: 50px;
+  text-align: center;
+  line-height: 50px;
+}
+.textAvatar{
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: #009688;
+  text-align: center;
+  line-height: 40px;
+  margin-right: 10px;
+}
+
+/* 底部固定区域 */
+.layui-footer{
+ text-align: center;
+}
