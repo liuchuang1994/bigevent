@@ -26,9 +26,7 @@ $(function () {
         }
     });      
     
-    $.ajaxPrefilter(function (options) {
-     options.url = "http://ajax.frontend.itheima.net" + options.url;
-    })
+    
 
    // 注册功能
     // 给form表单注册submit事件
@@ -82,11 +80,14 @@ $(function () {
                 if (res.status !== 0) {
                  return  layer.msg(res.message);
                 }
+
+                // 将token存储到本地中
+                localStorage.setItem('token',res.token)
                 // 登录成功
                 layer.msg('登录成功', {
                     time: 2000  //2秒关闭（如果不配置，默认是3秒）
                   }, function(){
-                    location.href = "/home/index.html"
+                    // location.href = "/home/index.html"
                   });  
             }
             
