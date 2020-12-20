@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>文章列表</title>
+    <link rel="stylesheet" href="/assets/lib/layui/css/layui.css">
+    <link rel="stylesheet" href="/assets/css/article/article.css">
+</head>
+
+<body>
+
+    <div class="layui-card">
+        <div class="layui-card-header">文章列表</div>
+        <div class="layui-card-body">
+            <form class="layui-form">
+                <div class="layui-form-item">
+                    <div class="layui-input-inline">
+                        <select name="cate_id" class="option" id="cateSelect">
+                            <option value="">所有分类</option>
+                        </select>
+                    </div>
+                    <div class="layui-input-inline">
+                        <select name="state" class="option" id="stateSelect">
+                            <option value="">所有状态</option>
+                            <option value="">已发布</option>
+                            <option value="">草稿</option>
+                        </select>
+                    </div>
+                    <div class="layui-input-inline">
+                        <button class="layui-btn" lay-submit lay-filter="formDemo">筛选</button>
+                    </div>
+                </div>
+            </form>
+            <table class="layui-table">
+                <colgroup>
+                    <col width="550">
+                    <col width="170">
+                    <col width="170">
+                    <col width="170">
+                    <col width="170">
+                </colgroup>
+                <thead>
+                    <tr>
+                        <th>文章标题</th>
+                        <th>分类</th>
+                        <th>发表事件</th>
+                        <th>状态</th>
+                        <th>操作</th>
+                    </tr>
+                </thead>
+                <tbody id="tb">
+
+                </tbody>
+            </table>
+            <div id="pageBox"></div>
+        </div>
+    </div>
+
+    <script type="text/html" id="addFormTpl">
+       {{each data}}
+        <tr>
+           <td>{{$value.title}}</td>
+           <td>{{$value.cate_name}}</td>
+           <td>{{$value.pub_date | filterTime}}</td>
+           <td>{{$value.state}}</td>
+           <td>
+               <button type="button" class="layui-btn  layui-btn-xs editBtn" data-id="{{$value.Id}}">编辑</button>
+               <button type="button" class="layui-btn layui-btn-danger layui-btn-xs delBtn" data-id="{{$value.Id}}" >删除</button>
+           </td>
+       </tr>
+       {{/each}}
+    </script>
+
+    <script src="/assets/lib/layui/layui.all.js"></script>
+    <script src="/assets/lib/jquery.js"></script>
+    <script src="/assets/lib/template-web.js"></script>
+    <script src="/assets/js/ajaxconfig.js"></script>
+    <script src="/assets/js/article/article.js"></script>
+</body>
+
+</html>
